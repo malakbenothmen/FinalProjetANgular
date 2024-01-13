@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title> Student-Space</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-blue-grey.css">
+<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+html, body, h1, h2, h3, h4, h5 {font-family: "Open Sans", sans-serif}
+</style>
+</head>
+<body class="w3-theme-l5">
+
+<!-- Navbar -->
+
+<nav class="navbar navbar-expand-lg navbar-dark shadow fixed-top" style="background-color:rgb(242, 87, 30)">
+  <div class="container-fluid">
+    <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-theme-d2" href="javascript:void(0);" onclick="openNav()">
+      <i class="fa fa-bars"></i>
+    </a>
+    <a class="navbar-brand" href="#">Student-Space</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a href="#" class="w3-bar-item w3-button w3-padding-large "><i class="fa fa-home w3-margin-right"></i>Home</a>
+        </li>
+      </ul>
+
+      <ul class="navbar-nav ml-auto"> 
+        <li class="nav-item">
+          <a routerLink="login" class="btn btn-outline-light rounded-pill" style="padding-right:10px;">
+            <i class="fa fa-user"></i> Log Out
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Navbar on small screens -->
+<div id="navDemo" class="w3-bar-block w3-theme-d2 w3-hide w3-hide-large w3-hide-medium w3-large">
+  <a href="#" class="w3-bar-item w3-button w3-padding-large">Link 1</a>
+  <a href="#" class="w3-bar-item w3-button w3-padding-large">Link 2</a>
+  <a href="#" class="w3-bar-item w3-button w3-padding-large">Link 3</a>
+  <a href="#" class="w3-bar-item w3-button w3-padding-large">My Profile</a>
+</div>
+
+<!-- Page Container -->
+<div class="w3-container w3-content" style="max-width:1400px;margin-top:80px">    
+  <!-- The Grid -->
+  <div class="w3-row">
+    <!-- Left Column -->
+    <div class="w3-col m3">
+      <!-- Profile -->
+      <div class="w3-card w3-round w3-white">
+        <div class="w3-container">
+         <h4 class="w3-center">My Profile</h4>
+         <p class="w3-center"><img src="../assets/Images/default.png" class="w3-circle" style="height:106px;width:106px" alt="Avatar"></p>
+         <hr>
+         <p><i class="fa fa-pencil fa-fw w3-margin-right w3-text-theme"></i> {{ currentUser.username }}</p>
+         <p><i class="fa fa-home fa-fw w3-margin-right w3-text-theme"></i> London, UK</p>
+         <p><i class="fa fa-birthday-cake fa-fw w3-margin-right w3-text-theme"></i> April 1, 1988</p>
+        </div>
+      </div>
+      <br>
+      
+      <!-- Accordion -->
+      <div class="w3-card w3-round">
+        <div class="w3-white">
+          <button onclick="myFunction('Demo1')" class="w3-button w3-block w3-theme-l1 w3-left-align"><i class="fa fa-circle-o-notch fa-fw w3-margin-right"></i> My Groups</button>
+          <div id="Demo1" class="w3-hide w3-container">
+            <p>Some text..</p>
+          </div>
+          <button onclick="myFunction('Demo2')" class="w3-button w3-block w3-theme-l1 w3-left-align"><i class="fa fa-calendar-check-o fa-fw w3-margin-right"></i> My TimeTable</button>
+          <div id="Demo2" class="w3-hide w3-container">
+            <p>Some other text..</p>
+          </div>
+          <button onclick="myFunction('Demo3')" class="w3-button w3-block w3-theme-l1 w3-left-align"><i class="fa fa-users fa-fw w3-margin-right"></i> My class </button>
+          <div id="Demo3" class="w3-hide w3-container">
+         </div>
+        </div>      
+      </div>
+      <br>
+      
+      <!-- Interests --> 
+      <div class="w3-card w3-round w3-white w3-hide-small">
+        <div class="w3-container">
+          <p>Interests</p>
+          <p>
+          
+            <span class="w3-tag w3-small w3-theme">Games</span>
+            <span class="w3-tag w3-small w3-theme-l1">Friends</span>
+            <span class="w3-tag w3-small w3-theme-l2">Food</span>
+            <span class="w3-tag w3-small w3-theme-l3">Design</span>
+            <span class="w3-tag w3-small w3-theme-l4">Art</span>
+            <span class="w3-tag w3-small w3-theme-l5">Photos</span>
+          </p>
+        </div>
+      </div>
+      <br>
+      
+      <!-- Alert Box -->
+      <div class="w3-container w3-display-container w3-round w3-theme-l4 w3-border w3-theme-border w3-margin-bottom w3-hide-small">
+        <span onclick="this.parentElement.style.display='none'" class="w3-button w3-theme-l3 w3-display-topright">
+          <i class="fa fa-remove"></i>
+        </span>
+        <p><strong>Hey!</strong></p>
+        <p>vous devez attender la validation de votre Dossier</p>
+      </div>
+    
+    <!-- End Left Column -->
+    </div>
+    
+
+    
+
+    <!-- Modal -->
+<div class="modal fade" id="exampleModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Enter Etudiant Information</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+
+        <form [formGroup]="etudiantForm">
+
+          <!-- FIRST AND LAST NAME -->
+          <div class="row">
+            <div class="col">
+              <input type="text" class="form-control" placeholder="First Name" formControlName="firstname">
+            </div>
+            <div class="col">
+              <input type="text" class="form-control" placeholder="Last Name" formControlName="lastname">
+            </div>
+          </div>
+
+<br>
+          <div class="row mt-">
+            <div class="col">
+              <input type="text" class="form-control" placeholder="الاسم" formControlName="firstnameA">
+            </div>
+            <div class="col">
+              <input type="text" class="form-control" placeholder="اللقب" formControlName="lastnameA">
+            </div>
+          </div>
+
+          <!-- PERSONAL INFORMATION -->
+          <div class="row mt-5">
+            <div class="col form-heading">
+              <h6 class="text-secondary fst-italic">Personal Information</h6>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col">
+              <label for="datepicker" class="form-label">Birthdate</label>
+              <input type="date" class="form-control" id="datepicker" formControlName="birthday">
+            </div>
+            <div class="col">
+              <div class="row">
+                <h6 class="text-secondary">Gender</h6>
+              </div>
+
+              <div class="row">
+                <div class="col">
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="gender" id="male" value="m"
+                      formControlName="gender">
+                    <label class="form-check-label" for="male">Male</label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="gender" id="female" value="f"
+                      formControlName="gender">
+                    <label class="form-check-label" for="female">Female</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          
+         <div class="row mt-3" >
+          <div class="col">
+            <input type="text" class="form-control" placeholder="CIN" formControlName="cin">
+          </div>
+        </div> 
+          <div class="row mt-3">
+            <div class="col">
+              <select class="form-select" formControlName="niveau">
+                <option value="default" selected>Select your Education</option>
+                <option *ngFor="let option of educationOptions; let i = index;" value="{{i}}">
+                  {{option | titlecase}}
+                </option>
+              </select>
+            </div>
+          </div>
+
+          <div class="row mt-3">
+            <div class="col">
+              <label for="profile" class="form-label">Profile Image</label>
+              <input type="file" class="form-control" id="profile" #fileInput>
+            </div>
+          </div>
+
+          <!-- JOB INFORMATION -->
+          <div class="row mt-5">
+            <div class="col form-heading">
+              <h6 class="text-secondary fst-italic">Academy Information</h6>
+            </div>
+          </div>
+
+          <div class="row mt-3">
+           
+          </div>
+
+          <div class="row mt-3">
+            <div class="col">
+              <input type="number" class="form-control" placeholder="last year's Average"
+                formControlName="moyenne">
+            </div>
+            <div class="col">
+              <select class="form-select" formControlName="parcours">
+                <option value="default" selected>Select your parcours</option>
+                <option *ngFor="let option of parcoursOptions ; let i = index;" value="{{i}}">
+                  {{option | titlecase}}
+                </option>
+              </select>
+            </div>
+          </div>
+        </form>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-btn text-white" style="background-color: rgb(255, 72, 0);"  data-bs-dismiss="modal" (click)="addEtudiant()">Insert</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <!-- Middle Column -->
+    <div class="w3-col m7">
+
+    <!--  <div class="w3-row-padding">
+        <div class="w3-col m12">
+          <div class="w3-card w3-round w3-white">
+            <div class="w3-container w3-padding">
+              <h6 class="w3-opacity">Social Media template by w3.css</h6>
+              <p contenteditable="true" class="w3-border w3-padding">Status: Feeling Blue</p>
+              <button type="button" class="w3-button w3-theme"><i class="fa fa-pencil"></i>  Post</button> 
+            </div>
+          </div>
+        </div>
+      </div>-->
+
+      <div class="w3-container w3-card w3-white w3-round w3-margin text-center">
+        <div class="w3-container">
+          <p><strong>Dossier d'inscription</strong></p>
+          <img src="../assets/Images/doc.png" alt="Avatar" style="width:50%"><br>
+     
+          <div class="w3-row w3-opacity">
+         <br>
+         <p>vous devez inscrire ici pour l'annéé universitaire 2024/2025</p>
+         <div class="add-etudiant">
+          <p>
+            <button class="w3-button w3-block w3-theme-l4" title="{{ isEditing ? 'Éditer' : 'S\'inscrire' }}" 
+                    data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="isEditing ? editEtudiant() : addEtudiant()">
+              {{ isEditing ? 'Éditer' : 'S inscrire' }}
+            </button>
+          </p>
+        </div>
+    
+          </div>
+        </div>
+      </div>
+    
+
+      
+      <div class="w3-container w3-card w3-white w3-round w3-margin"><br>
+        <img src="../assets/Images/iset.jpg" alt="Avatar" class="w3-left w3-circle w3-margin-right" style="width:60px">
+        <span class="w3-right w3-opacity">1 min</span>
+        <h4>iset Nabeul Administration </h4><br>
+        <hr class="w3-clear">
+        <p>Bienvenue a iset nabeul ! learm loearm loearm  </p>
+          <div class="w3-row-padding" style="margin:0 -16px">
+            <div class="w3-half">
+              <img src="../assets/Images/i1.jpg" style="width:100%" alt="Northern Lights" class="w3-margin-bottom">
+            </div>
+            <div class="w3-half">
+              <img src="../assets/Images/i2.jpg" style="width:100%" alt="Northern Lights" class="w3-margin-bottom">
+            </div>
+
+        </div>
+      <!--  <button type="button" class="w3-button w3-theme-d1 w3-margin-bottom"><i class="fa fa-thumbs-up"></i>  Like</button> 
+        <button type="button" class="w3-button w3-theme-d2 w3-margin-bottom"><i class="fa fa-comment"></i>  Comment</button> -->
+      </div>
+      
+
+     
+      
+    <!-- End Middle Column -->
+    </div>
+    
+    <!-- Right Column -->
+    <div class="w3-col m2">
+      <div class="w3-card w3-round w3-white w3-center">
+        <div class="w3-container">
+          <p>Upcoming Events:</p>
+          <img src="../assets/Images/event1.jpg" alt="Forest" style="width:100%;">
+          <p><strong>Annocement</strong></p>
+          <p>Friday 15:00</p>
+          <p><button class="w3-button w3-block w3-theme-l4">Info</button></p>
+        </div>
+      </div>
+      <br>
+
+
+        
+      
+
+      <br>
+      
+
+   
+      
+    <!-- End Right Column -->
+    </div>
+    
+  <!-- End Grid -->
+  </div>
+  
+<!-- End Page Container -->
+</div>
+<br>
+
+<!-- Footer -->
+<footer class="w3-container w3-theme-d3 w3-padding-16">
+  <h5>Footer</h5>
+</footer>
+
+
+ 
+<script>
+// Accordion
+function myFunction(id) {
+  var x = document.getElementById(id);
+  if (x.className.indexOf("w3-show") == -1) {
+    x.className += " w3-show";
+    x.previousElementSibling.className += " w3-theme-d1";
+  } else { 
+    x.className = x.className.replace("w3-show", "");
+    x.previousElementSibling.className = 
+    x.previousElementSibling.className.replace(" w3-theme-d1", "");
+  }
+}
+
+// Used to toggle the menu on smaller screens when clicking on the menu button
+function openNav() {
+  var x = document.getElementById("navDemo");
+  if (x.className.indexOf("w3-show") == -1) {
+    x.className += " w3-show";
+  } else { 
+    x.className = x.className.replace(" w3-show", "");
+  }
+}
+</script>
+
+</body>
+</html> 
+

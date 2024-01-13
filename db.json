@@ -1,0 +1,175 @@
+{
+  "posts": [
+    {
+      "firstname": "tesnim",
+      "lastname": "ben salem",
+      "firstnameA": "تسنيم",
+      "lastnameA": "بن سالم",
+      "birthdate": "2003-11-12",
+      "gender": "f",
+      "niveau": "niveau 2",
+      "cin": "1475892",
+      "parcours": "DSI",
+      "moyenne": 15,
+      "profile": "fille 1.jpg",
+      "id": 2
+    },
+    {
+      "firstname": "seifEddine",
+      "lastname": "Ben Amera",
+      "firstnameA": "سيف الدين",
+      "lastnameA": "بن عمارة",
+      "birthdate": "2003-06-11",
+      "gender": "m",
+      "niveau": "niveau 2",
+      "cin": "1478523",
+      "parcours": "DSI",
+      "moyenne": 16,
+      "profile": "gar 3.jpg",
+      "id": 4
+    },
+    {
+      "firstname": "Ranim",
+      "lastname": "Zghibi",
+      "firstnameA": "رنيم",
+      "lastnameA": "الزغيبي",
+      "birthdate": "2003-08-28",
+      "gender": "f",
+      "niveau": "niveau 2",
+      "cin": "456942",
+      "parcours": "DSI",
+      "moyenne": 14.5,
+      "profile": "fille 3.jpg",
+      "id": 5
+    },
+    {
+      "firstname": "malak",
+      "lastname": "ben othmen",
+      "firstnameA": "ملاك",
+      "lastnameA": "بنعثمان",
+      "birthdate": "2003-10-14",
+      "gender": "f",
+      "niveau": "niveau 2",
+      "cin": "17771114",
+      "parcours": "DSI",
+      "moyenne": 16,
+      "profile": "fille 2.jpg",
+      "id": 6
+    },
+    {
+      "firstname": "use1",
+      "lastname": "exp1",
+      "firstnameA": "user1",
+      "lastnameA": "exp1",
+      "birthdate": "2024-01-20",
+      "gender": "m",
+      "niveau": "niveau 3",
+      "cin": "147258",
+      "parcours": "DSI",
+      "moyenne": 12,
+      "profile": "gar 2.jpg",
+      "id": 7
+    },
+    {
+      "firstname": "user2",
+      "lastname": "exp2",
+      "firstnameA": "user2",
+      "lastnameA": "exp2",
+      "birthdate": "2024-01-11",
+      "gender": "m",
+      "niveau": "niveau 1",
+      "cin": "456321",
+      "parcours": "DSI",
+      "moyenne": 18,
+      "profile": "gar 1.jpg",
+      "id": 8
+    },
+    {
+      "firstname": "user3",
+      "lastname": "exp3",
+      "firstnameA": "user3",
+      "lastnameA": "exp3",
+      "birthdate": "2024-01-26",
+      "gender": "f",
+      "niveau": "niveau 1",
+      "cin": "147895",
+      "parcours": "MDW",
+      "moyenne": 11,
+      "profile": "fille 4.jpg",
+      "id": 9
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "username": "malak",
+      "email": "malekbenothmen70@gmail.com",
+      "password": "1234",
+      "role": "etudiant"
+    },
+    {
+      "id": 2,
+      "username": "user1",
+      "email": "user1@gmail.com",
+      "password": "456",
+      "role": "etudiant"
+    },
+    {
+      "id": 3,
+      "username": "user2",
+      "email": "malekbenothmen70@gmail.com",
+      "password": "789",
+      "role": "etudiant"
+    },
+    {
+      "id": 4,
+      "username": "admin",
+      "email": "admin@gmail.com",
+      "password": "admin",
+      "role": "admin"
+    },
+    {
+      "id": 5,
+      "username": "malak",
+      "email": "malak@gmail.com",
+      "password": "malak@gmail.com",
+      "role": "etudiant"
+    },
+    {
+      "id": 6,
+      "username": "rania",
+      "email": "rania@gmail.com",
+      "password": "rania@gmail.com",
+      "role": "etudiant"
+    },
+    {
+      "id": 7,
+      "username": "malak",
+      "email": "malakbenothmane@gmail.com",
+      "password": "malakbenothmane@gmail.com",
+      "role": "etudiant"
+    },
+    {
+      "id": 8,
+      "username": "administration",
+      "email": "admin2@gmail.com",
+      "password": "admin2",
+      "role": "admin"
+    },
+    {
+      "id": 9,
+      "username": "admin1",
+      "email": "admin1@gmail.com",
+      "password": "admin1",
+      "role": "admin"
+    },
+    {
+      "id": 10,
+      "username": "testeur",
+      "email": "admin.test@gmail.com",
+      "password": "admintest",
+      "role": "admin"
+    }
+  ],
+  "comments": []
+}

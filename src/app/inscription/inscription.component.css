@@ -1,0 +1,85 @@
+.green-border {
+  border: 1px solid rgb(97, 242, 19);
+}
+  
+  main {
+    width: 90%;
+    margin: 3rem auto 0px;
+  }
+  
+  .toolbar {
+    height: 4rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .add-student {
+    width: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .search-students {
+    width: 25%;
+    height: 90%;
+    border-radius: 1rem;
+    box-shadow: 0px 0px 10px rgba(31, 175, 48, 0.5);
+  }
+  
+  .search-students input {
+    width: 100%;
+    height: 100%;
+    border-radius: 1rem;
+    font-size: 1.3rem;
+  }
+  
+  .app-student {
+    display: block;
+    width: 75%;
+    margin: 0px auto;
+    border-radius: 1rem;
+    box-shadow: 0px 0px 5px rgba(34, 34, 34, 0.5);
+  }
+  
+  .form-heading {
+    border-top: 1px solid black;
+  }
+  
+  .form-heading h6 {
+    text-align: center;
+    background-color: white;
+    width: 200px;
+    transform: translateY(-50%);
+  }
+  .sidebar-link:hover {
+    background-color: rgb(255, 106, 37); /* Couleur de fond au survol */
+    color: #fff; /* Couleur du texte au survol */
+  }
+  .sidebar-link {
+    color: #333; /* Couleur du texte de l'option non cliquée */
+    text-decoration: none; /* Supprimer la soulignement du lien */
+    display: block;
+    padding: 10px; /* Espace intérieur de l'option */
+    transition: background 0.3s; /* Transition pour le changement de couleur de fond */
+  }
+
+  .sidebar {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Ombre légère */
+    padding: 15px; /* Espace intérieur */
+  
+
+  background-color: #f8f9fa; /* Ajoutez une couleur de fond ou d'autres styles selon vos préférences */
+  height: 100vh; /* Utilisez la hauteur de la vue (viewport height) pour remplir l'écran vertical */
+  width: 250px; /* Définissez la largeur de la barre latérale selon vos besoins */
+  position: fixed; /* Fixez la barre latérale à la vue lors du défilement */
+  top: 0;
+  left: 0;
+  padding-top: 20px; 
+  }
+  .add-student button:hover {
+    background-color: black ; /* Couleur au survol */
+    color: white; /* Couleur du texte au survol */
+    transition: background-color 0.3s ease; /* Animation de transition */
+  }

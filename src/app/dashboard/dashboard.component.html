@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Dashboerd</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Gn5384xqQ1u6R+Zd/eF6PkGYBvysV3pGO00VlOAwo0di+1T8RZ6rcW2N3EzYnOdFm+gZBodkZW+XyOcZ6p9Rkg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<style>
+html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
+</style>
+</head>
+<body class="w3-light-grey">
+
+<!-- Top container -->
+
+<app-header></app-header>
+
+<!-- Sidebar/menu -->
+<app-side-bar></app-side-bar>
+
+
+<!-- !PAGE CONTENT! -->
+<div class="w3-main" style="margin-left:300px;margin-top:43px;">
+
+  <!-- Header -->
+  <header class="w3-container" style="padding-top:22px">
+    <h5><b><i class="fa fa-dashboard"></i> My Dashboard</b></h5>
+  </header>
+
+  <div class="w3-row-padding w3-margin-bottom">
+    <div class="w3-quarter"> 
+      <div class="w3-container w3-red w3-padding-16">
+        <div class="w3-left"><i class="fa fa-female w3-xxxlarge"></i>
+        </div>
+        <div class="w3-right">
+          <h3>{{girls}}</h3>
+        </div>
+        <div class="w3-clear"></div>
+        <h4>Female</h4>
+      </div>
+    </div>
+    <div class="w3-quarter">
+      <div class="w3-container w3-blue w3-padding-16">
+        <div class="w3-left"><i class="fa fa-male w3-xxxlarge"></i></div>
+        <div class="w3-right">
+          <h3>{{boys}}</h3>
+        </div>
+        <div class="w3-clear"></div>
+        <h4>Male</h4>
+      </div>
+    </div>
+    <div class="w3-quarter">
+      <div class="w3-container w3-teal w3-padding-16">
+        <div class="w3-left"><i class="fa fa-user-check w3-xxxlarge"></i>
+        </div>
+        <div class="w3-right">
+          <h3>{{etudiantInscrit}}</h3>
+        </div>
+        <div class="w3-clear"></div>
+        <h4>Registered user</h4>
+      </div>
+    </div>
+    <div class="w3-quarter">
+      <div class="w3-container w3-orange w3-text-white w3-padding-16">
+        <div class="w3-left"><i class="fa fa-users w3-xxxlarge"></i></div>
+        <div class="w3-right">
+          <h3>{{userCount}}</h3>
+        </div>
+        <div class="w3-clear"></div>
+        <h4>Users</h4>
+      </div>
+    </div>
+  </div>
+
+  <div class="w3-container">
+    <h5>Admins</h5>
+    <table class="w3-table w3-striped w3-bordered w3-border w3-hoverable w3-white">
+      <thead style="background-color:  #a7de38 ; color : white ;"> 
+        <tr>
+          <th>Id</th>
+          <th>Name</th>
+          <th>Email</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let admin of Admins ">
+          <td>{{ admin.id }}</td>
+          <td>{{ admin.username }}</td>
+          <td>{{ admin.email }}</td>
+        </tr>
+    </table><br>
+  </div>
+
+  <hr>
+  <div class="w3-container">
+    <h5>Mentions</h5>
+    <div *ngFor="let m of mentions ">
+    <p>{{m.mention}}</p>
+    <div class="w3-grey">
+      <div class="w3-container w3-center w3-padding "  [ngStyle]="{ 'width.%': m.nombre, 'background-color': getColorByMention(m.mention) }"> {{ m.nombre | number:'1.2-2' }}%</div>
+    </div>
+</div>
+</div>
+
+
+
+
+  <hr>
+
+ <!-- <div class="w3-container">
+    <h5>Recent Comments</h5>
+    <div class="w3-row">
+      <div class="w3-col m2 text-center">
+        <img class="w3-circle" src="/w3images/avatar3.png" style="width:96px;height:96px">
+      </div>
+      <div class="w3-col m10 w3-container">
+        <h4>John <span class="w3-opacity w3-medium">Sep 29, 2014, 9:12 PM</span></h4>
+        <p>Keep up the GREAT work! I am cheering for you!! Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p><br>
+      </div>
+    </div>
+
+    <div class="w3-row">
+      <div class="w3-col m2 text-center">
+        <img class="w3-circle" src="/w3images/avatar1.png" style="width:96px;height:96px">
+      </div>
+      <div class="w3-col m10 w3-container">
+        <h4>Bo <span class="w3-opacity w3-medium">Sep 28, 2014, 10:15 PM</span></h4>
+        <p>Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p><br>
+      </div>
+    </div>
+  </div>
+  <br>
+
+  <div class="w3-container w3-dark-grey w3-padding-32">
+    <div class="w3-row">
+      <div class="w3-container w3-third">
+        <h5 class="w3-bottombar w3-border-green">Demographic</h5>
+        <p>Language</p>
+        <p>Country</p>
+        <p>City</p>
+      </div>
+      <div class="w3-container w3-third">
+        <h5 class="w3-bottombar w3-border-red">System</h5>
+        <p>Browser</p>
+        <p>OS</p>
+        <p>More</p>
+      </div>
+      <div class="w3-container w3-third">
+        <h5 class="w3-bottombar w3-border-orange">Target</h5>
+        <p>Users</p>
+        <p>Active</p>
+        <p>Geo</p>
+        <p>Interests</p>
+      </div>
+    </div>
+  </div>-->
+
+  <!-- End page content -->
+</div>
+
+<script>
+// Get the Sidebar
+var mySidebar = document.getElementById("mySidebar");
+
+// Get the DIV with overlay effect
+var overlayBg = document.getElementById("myOverlay");
+
+// Toggle between showing and hiding the sidebar, and add overlay effect
+function w3_open() {
+  if (mySidebar.style.display === 'block') {
+    mySidebar.style.display = 'none';
+    overlayBg.style.display = "none";
+  } else {
+    mySidebar.style.display = 'block';
+    overlayBg.style.display = "block";
+  }
+}
+
+// Close the sidebar with the close button
+function w3_close() {
+  mySidebar.style.display = "none";
+  overlayBg.style.display = "none";
+}
+</script>
+
+</body>
+</html>

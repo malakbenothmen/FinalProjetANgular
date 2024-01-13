@@ -1,0 +1,207 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Page Title</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Gn5384xqQ1u6R+Zd/eF6PkGYBvysV3pGO00VlOAwo0di+1T8RZ6rcW2N3EzYnOdFm+gZBodkZW+XyOcZ6p9Rkg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <style>   
+     body {
+      padding-top: 50px; }
+
+    .container-fluid {
+      padding-right: 0; 
+    }
+
+  </style>
+  </head>
+  <body class="w3-light-grey">
+
+    <!-- HEADER -->
+    <app-header></app-header>
+
+    <div class="container-fluid">
+      <div class="row g-0">
+  
+     <!-- SIDEBAR -->
+    
+          <app-side-bar></app-side-bar>
+      
+ <div class="w3-main" style="margin-left:270px;margin-top:43px;">
+
+<div class="col-md-10"  >
+    <div class="mt-16"><h1 class=" fs-2 fw-bold fst-italic" style="color:orangered; text-align: center">DOSSIER D'INSCRIPTION</h1></div>
+
+    <!-- MAIN CONTENT -->
+    <main class="green-border ">
+
+    <!-- TOOLBAR TO ADD AND SEARCH studentS -->
+    <div class="toolbar">
+
+      <div class="add-etudiant">
+        <button type="button" class="btn btn-btn text-white" style="background-color:rgb(42, 202, 42);" data-bs-toggle="modal"
+          data-bs-target="#exampleModal" #addEtudiantButton>
+          <i class="fas fa-plus"></i> Add Studant
+        </button>
+      </div>
+      
+
+      <div class="container">
+        <input type="search" class="form-control" placeholder="Search Etudiant"
+          (input)="searchEtudiants(searchInput.value)" #searchInput>
+      </div>
+      
+
+    </div>
+
+    <!-- AREA TO DISPLAY ALL THE studentS -->
+    <div class="etudiants">
+
+      <div class="row mt-5" *ngIf="etudiants.length == 0">
+        <div class="col text-center">
+          <span class="text-secondary fs-2 fw-bold fst-italic">There are No students Added!</span>
+        </div>
+      </div>
+      
+      <div class="row mt-4" *ngFor="let etudiant of etudiantsToDisplay; let ei = index;">
+        <div class="col">
+          <app-etudiant [etudiant]="etudiant" (onRemoveEtudiant)="removeEtudiant($event)"
+            (onEditEtudiant)="editEtudiant($event)"></app-etudiant>
+        </div>
+      </div>
+
+    </div>
+  </main>
+</div>
+</div>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Enter Etudiant Information</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+
+        <form [formGroup]="etudiantForm">
+
+          <!-- FIRST AND LAST NAME -->
+          <div class="row">
+            <div class="col">
+              <input type="text" class="form-control" placeholder="First Name" formControlName="firstname">
+            </div>
+            <div class="col">
+              <input type="text" class="form-control" placeholder="Last Name" formControlName="lastname">
+            </div>
+          </div>
+
+<br>
+          <div class="row mt-">
+            <div class="col">
+              <input type="text" class="form-control" placeholder="الاسم" formControlName="firstnameA">
+            </div>
+            <div class="col">
+              <input type="text" class="form-control" placeholder="اللقب" formControlName="lastnameA">
+            </div>
+          </div>
+
+          <!-- PERSONAL INFORMATION -->
+          <div class="row mt-5">
+            <div class="col form-heading">
+              <h6 class="text-secondary fst-italic">Personal Information</h6>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col">
+              <label for="datepicker" class="form-label">Birthdate</label>
+              <input type="date" class="form-control" id="datepicker" formControlName="birthday">
+            </div>
+            <div class="col">
+              <div class="row">
+                <h6 class="text-secondary">Gender</h6>
+              </div>
+
+              <div class="row">
+                <div class="col">
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="gender" id="male" value="m"
+                      formControlName="gender">
+                    <label class="form-check-label" for="male">Male</label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="gender" id="female" value="f"
+                      formControlName="gender">
+                    <label class="form-check-label" for="female">Female</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          
+         <div class="row mt-3" >
+          <div class="col">
+            <input type="text" class="form-control" placeholder="CIN" formControlName="cin">
+          </div>
+        </div> 
+          <div class="row mt-3">
+            <div class="col">
+              <select class="form-select" formControlName="niveau">
+                <option value="default" selected>Select your Education</option>
+                <option *ngFor="let option of educationOptions; let i = index;" value="{{i}}">
+                  {{option | titlecase}}
+                </option>
+              </select>
+            </div>
+          </div>
+
+          <div class="row mt-3">
+            <div class="col">
+              <label for="profile" class="form-label">Profile Image</label>
+              <input type="file" class="form-control" id="profile" #fileInput>
+            </div>
+          </div>
+
+          <!-- JOB INFORMATION -->
+          <div class="row mt-5">
+            <div class="col form-heading">
+              <h6 class="text-secondary fst-italic">Academy Information</h6>
+            </div>
+          </div>
+
+          <div class="row mt-3">
+           
+          </div>
+
+          <div class="row mt-3">
+            <div class="col">
+              <input type="number" class="form-control" placeholder="last year's Average"
+                formControlName="moyenne">
+            </div>
+            <div class="col">
+              <select class="form-select" formControlName="parcours">
+                <option value="default" selected>Select your parcours</option>
+                <option *ngFor="let option of parcoursOptions ; let i = index;" value="{{i}}">
+                  {{option | titlecase}}
+                </option>
+              </select>
+            </div>
+          </div>
+        </form>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-btn text-white" style="background-color: rgb(255, 72, 0);"  data-bs-dismiss="modal" (click)="addEtudiant()">Insert</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>

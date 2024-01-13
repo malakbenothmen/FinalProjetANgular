@@ -1,0 +1,42 @@
+
+<head>
+  <title>navbar</title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Gn5384xqQ1u6R+Zd/eF6PkGYBvysV3pGO00VlOAwo0di+1T8RZ6rcW2N3EzYnOdFm+gZBodkZW+XyOcZ6p9Rkg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <style>
+  html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
+  </style>
+  
+  </head>
+
+
+  <nav class="w3-sidebar w3-collapse w3-white shadow" style="z-index:3;width:300px;" id="mySidebar"><br>
+    <div class="w3-container w3-row">
+      <div class="w3-col s4">
+        <img src="../assets/Images/admin.jpg" class="w3-circle w3-margin-right" style="width:46px">
+      </div>
+      <div class="w3-col s8 w3-bar">
+        <span>Welcome, <strong>{{currentUser.username}}</strong></span><br>
+
+      </div>
+    </div>
+    <hr>
+    <div class="w3-container">
+      <h5>Dashboard</h5>
+    </div>
+    <div class="w3-bar-block ">
+      <a href="#" class="w3-bar-item w3-button w3-padding-16 w3-hide-large w3-dark-grey w3-hover-black" onclick="w3_close()" title="close menu"><i class="fa fa-remove fa-fw"></i>  Close Menu</a>
+      <a  routerLink="/dashboard" class="sidebar-link" ><i class="fa fa-bank fa-fw"></i>  Home</a>
+
+      <a routerLink="/inscription" class="sidebar-link" ><i class="fa fa-users fa-fw"></i>  Dossier d'inscription</a>
+      <a  href="/niv1" class="sidebar-link" ><i class="fa fa-bullseye fa-fw"></i>Niveau 1</a>
+      <a  href="/niv2" class="sidebar-link" ><i class="fa fa-bullseye fa-fw"></i><i class="fa fa-bullseye fa-fw"></i>Niveau 2</a>
+      <a  href="/niv3" class="sidebar-link" ><i class="fa fa-bullseye fa-fw"></i><i class="fa fa-bullseye fa-fw"></i><i class="fa fa-bullseye fa-fw"></i>Niveau 3</a>
+
+
+    </div>
+  </nav>

@@ -1,0 +1,38 @@
+main {
+    width: 90%;
+    margin: 3rem auto 0px;
+  }
+  
+  .toolbar {
+    height: 4rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+
+  .sidebar-link:hover {
+    background-color: rgb(255, 106, 37); /* Couleur de fond au survol */
+    color: #fff; /* Couleur du texte au survol */
+  }
+  .sidebar-link {
+    color: #333; /* Couleur du texte de l'option non cliquée */
+    text-decoration: none; /* Supprimer la soulignement du lien */
+    display: block;
+    padding: 10px; /* Espace intérieur de l'option */
+    transition: background 0.3s; /* Transition pour le changement de couleur de fond */
+  }
+  
+  .sidebar {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Ombre légère */
+    padding: 15px; /* Espace intérieur */
+  
+  
+  background-color: #f8f9fa; /* Ajoutez une couleur de fond ou d'autres styles selon vos préférences */
+  height: 100vh; /* Utilisez la hauteur de la vue (viewport height) pour remplir l'écran vertical */
+  width: 250px; /* Définissez la largeur de la barre latérale selon vos besoins */
+  position: fixed; /* Fixez la barre latérale à la vue lors du défilement */
+  top: 0;
+  left: 0;
+  padding-top: 20px; 
+  }

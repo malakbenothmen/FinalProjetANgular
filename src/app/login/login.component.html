@@ -1,0 +1,61 @@
+
+<br><br><br><br>
+
+<div class="container">
+
+    <div class="form-container sign-in-container">
+        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+            <h1 style="color: #ff0000;">Sign in</h1>
+            <div class="social-container">
+                <a href="#" class="social"><i class="fa fa-facebook" style="color: #0066ff;"></i></a>
+                <a href="#" class="social"><i class="fa fa-google-plus" style="color: #ec1b1b;"></i></a>
+                <a href="#" class="social"><i class="fa fa-linkedin" style="color: #2b00ff;"></i></a>
+            </div>
+            <span> use your account</span>
+            
+            <input type="email" id="email" formControlName="email" class="form-control custom-input" placeholder="Email" />
+            <div *ngIf="loginForm.get('email')?.hasError('required') && loginForm.get('email')?.touched" class="text-danger">
+                Email requis.
+              </div>
+              <div *ngIf="loginForm.get('email')?.hasError('email') && loginForm.get('email')?.touched" class="text-danger">
+                Email invalide.
+              </div>
+        
+
+
+            <input type="password" id="password" formControlName="password" class="form-control custom-input " placeholder="Password" />
+            <div *ngIf="loginForm.get('password')?.hasError('required') && loginForm.get('password')?.touched" class="text-danger">
+                Mot de passe requis.
+            </div>
+            
+            <a href="#">Forgot your password?</a>
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary">Se connecter</button>
+              </div>
+        </div>
+        <br><br>
+              <div *ngIf="message" [ngClass]="{'alert': true, 'alert-success': connexion, 'alert-danger': !connexion, 'fade': true, 'show': true, 'slideInUp': showAnimation, 'slideOutUp': hideAnimation}" (animationend)="onAnimationEnd()">
+                <span *ngIf="connexion" class="fa fa-check"></span>
+                <span *ngIf="!connexion" class="fa fa-times"></span>
+                {{ message }}
+              </div>
+              
+        </form>
+    </div>
+    <div class="overlay-container">
+        <div class="overlay">
+            <div class="overlay-panel overlay-right">
+                <h1>welcome to Iset Nabeul!</h1>
+                <p>are you a new student ? click here to register</p>
+                <button class="ghost" routerLink="/register" >register</button>
+            </div>
+        </div>
+    </div>
+  
+
+
+
+
+  
+  
